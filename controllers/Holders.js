@@ -23,8 +23,6 @@ const postHolders = async (req, res) => {
     }
 };
 
-
-
 const putHolders = async (req, res) =>{
     try {
         const {id} = req.params
@@ -47,7 +45,6 @@ const putHolders = async (req, res) =>{
     }
 }
 
-
 const getHolder = async (req , res) =>{
 
     try {
@@ -61,8 +58,6 @@ const getHolder = async (req , res) =>{
 
 }
 
-
-
 const getHolders = async (req , res) =>{
 
     try {
@@ -73,7 +68,6 @@ const getHolders = async (req , res) =>{
         console.log(error);
     }
 }
-
 
 const putActive = async (req, res)=>{
     try {
@@ -96,7 +90,5 @@ const putUnactivate = async (req, res)=>{
         console.log(error);
     }
 }
-
-
 
 module.exports={postHolders, putHolders, getHolder, getHolders, putActive, putUnactivate}

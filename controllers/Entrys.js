@@ -1,6 +1,5 @@
 const Entrys = require("../models/Entrys")
 
-
 const postEntry = async (req, res)=>{
     try {
         const {laptop, entrytime, checkout, type} = req.body;
@@ -13,8 +12,6 @@ const postEntry = async (req, res)=>{
     }
 }
 
-
-
 const getlistarPorHolder = async (req,res)=>{
     try {
         const {id} = req.params;
@@ -25,8 +22,6 @@ const getlistarPorHolder = async (req,res)=>{
         console.log(error);
     }
 }
-
-
 
 const getListarPorDia = async (req, res)=>{
     try {
@@ -43,8 +38,6 @@ const getListarPorDia = async (req, res)=>{
         console.log(error);
 }
 }
-
-
 
 const getListarPorFechas = async (req, res)=>{
     try {

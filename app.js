@@ -7,10 +7,10 @@ const Laptops = require ('./routes/Laptops')
 
 const app=express()
 app.use(express.json())
-app.use("/api/holder",holder)
+
 app.use("/api/entry", Entry)
 app.use("/api/laptop", Laptops)
-
+app.use("/api/holder",holder)
 
 
 

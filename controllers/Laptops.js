@@ -1,7 +1,6 @@
 const Laptops = require("../models/Laptops");
 const qrCodigo = require("qrcode")
 
-
 const postInsertar = async (req, res)=>{
     try {
         const {holder, serial, qrcode, state, observations} = req.body;
@@ -13,7 +12,6 @@ const postInsertar = async (req, res)=>{
         console.log(error);
     }
 }
-
 
 const putModificar= async (req,res)=>{
     try {
@@ -27,7 +25,6 @@ const putModificar= async (req,res)=>{
     }
 }
 
-
 const getListar = async (req, res)=>{
     try {
         const laptops= await Laptops.find();
@@ -37,9 +34,6 @@ const getListar = async (req, res)=>{
         console.log(error);
     }
 }
-
-
-
 
 const getListarPorId = async (req, res)=>{
     try {
@@ -51,7 +45,6 @@ const getListarPorId = async (req, res)=>{
         console.log(error);
     }
 }
-
 
 const putActivar = async (req, res)=>{
     try {
