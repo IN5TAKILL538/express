@@ -7,7 +7,7 @@ const entrySchema = new mongoose.Schema({
     },
     entrytime: { type: Date, default: Date.now },
     checkout: { type: Date, default: Date.now },
-    type: { type: Number, default: 1 }, //1:PRESTAMO BIBLIOTECA   2:INGRESO PORTERIA
+    type: { type: Number, default: 1 }, 
 });
 
 module.exports = mongoose.model("Entry", entrySchema)

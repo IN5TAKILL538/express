@@ -3,19 +3,19 @@ const {postEntry, getlistarPorHolder, getListarPorDia, getListarPorFechas, putEn
 const router = Router()
 
 
-//insertar
-router.post("/", postEntry)
 
-//listar por holder
-router.get("/holder/:id", getlistarPorHolder)
+router.post("/", postEntry)//insertar
 
-//listar por dia
-router.get("/:dia", getListarPorDia)
 
-//listar por fechas
-router.get("/fechas/:fechaInicio/:fechaFinal", getListarPorFechas)
+router.get("/holder/:id", getlistarPorHolder)//listar por holder
 
-//entrada o salida
-router.put("/:salida", putEntradaSalida)
+
+router.get("/:dia", getListarPorDia)//listar por dia
+
+
+router.get("/fechas/:fechaInicio/:fechaFinal", getListarPorFechas)//listar por fechas
+
+
+router.put("/:salida", putEntradaSalida)//entrada o salida
 
 module.exports=router

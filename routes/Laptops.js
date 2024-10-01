@@ -1,28 +1,30 @@
 const {Router} = require("express")
 const {postInsertar, putModificar, getListar, getListarPorId, putActivar, putDesactivar, generarQr} = require("../controllers/Laptops")
 const router = Router()
-
-//insertar
-router.post("/",postInsertar)
+const {helperlaptops} = require("../helpers/Laptops")
 
 
-//modificar
-router.put("/:id", putModificar)
-
-//listar
-router.get("/",getListar)
+router.post("/",[
+ 
+],postInsertar)//insertar
 
 
-//listar pot id
-router.get("/:id", getListarPorId )
+router.put("/:id", putModificar)//modificar
 
-//activar
-router.put("/activate/:id", putActivar )
 
-//desactivar
-router.put("/unactivate/:id", putDesactivar)
+router.get("/",getListar)//listar
 
-//codigo qr
-router.put("/qr/:serial", generarQr)
+
+
+router.get("/:id", getListarPorId )//listar pot id
+
+
+router.put("/activate/:id", putActivar )//activar
+
+
+router.put("/unactivate/:id", putDesactivar)//desactivar
+
+
+router.put("/qr/:serial", generarQr)//codigo qr
 
 module.exports=router  
