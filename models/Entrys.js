@@ -1,13 +1,17 @@
-const mongoose = require("mongoose");
-const entrySchema = new mongoose.Schema({
-    laptop: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "laptop",
-        required: true,
-    },
-    entrytime: { type: Date, default: Date.now },
-    checkout: { type: Date, default: Date.now },
-    type: { type: Number, default: 1 }, 
-});
+const mongoose = require('mongoose');
 
-module.exports = mongoose.model("Entry", entrySchema)
+const entrySchema = new mongoose.Schema({
+  laptop: { type: mongoose.Schema.Types.ObjectId, ref: 'Laptop', required: true },
+  laptop: { type: mongoose.Schema.Types.ObjectId, ref: 'Holder', required: true },
+  entrytime: { type: Date, default: Date.now },
+  checkout: { type: Date },
+  type: { type: Number, default: 1 }
+},
+  {
+    timestamps: true
+  }
+
+);
+
+
+module.exports = mongoose.models.Entry || mongoose.model('Entry', entrySchema);

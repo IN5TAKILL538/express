@@ -1,22 +1,24 @@
-const express= require('express')
-const mongoose= require('mongoose')
-require('dotenv').config()
-const holder = require ('./routes/Holders')
-const Entry = require ('./routes/Entrys')
-const Laptops = require ('./routes/Laptops')
+const express = require('express');
+const mongoose = require('mongoose');
+require('dotenv').config();
+const holderRoutes = require('./routes/holderRoutes');
+const laptopRoutes = require('./routes/laptopRoutes');
+const entryRoutes = require('./routes/entryRoutes');
+const app = express();
 
-const app=express()
-app.use(express.json())
+app.use(express.json());
 
-app.use("/api/entry", Entry)
-app.use("/api/laptop", Laptops)
-app.use("/api/holder",holder)
-
+app.use('/api/holder', holderRoutes);
+app.use('/api/laptop', laptopRoutes);
+app.use('/api/entry', entryRoutes);
 
 
-app.listen(process.env.PORT,()=>{
-    console.log('Servidor escuchando en el puerto' + process.env.PORT);
-    mongoose.connect(process.env.CNX_MONGO)
-    .then(()=> console.log('conected!'))
-    .catch((error)=> console.log(error))
-})
+mongoose.connect(process.env.CNX_MONGO, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('Base de datos conectada'))
+    .catch((error) => console.log('Error en la conexión a la base de datos:', error));
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Servidor corriendo en el puerto ${PORT}`);
+});
